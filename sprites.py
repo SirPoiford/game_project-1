@@ -3,6 +3,9 @@ from config import *
 import math
 import random
 
+class Spritesheet:
+    def __init__(self, file):
+
 class Player(pygame.sprite.Sprite):
     def __init__(self,game,x,y):
 
@@ -24,6 +27,7 @@ class Player(pygame.sprite.Sprite):
         image_to_load = pygame.image.load('img/single.png')
 
         self.image = pygame.Surface([self.width,self.height])
+        self.image.set_colorkey(black)
         self.image.blit(image_to_load,(0,0))
 
         self.rect = self.image.get_rect()
