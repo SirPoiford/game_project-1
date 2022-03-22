@@ -11,6 +11,9 @@ class Game:
         self.clock = pygame.time.Clock()
         self.running = True
 
+        self.character_spritesheet = Spritesheet('img/character.character.png')
+        self.terrain_spritesheet = Spritesheet('img/terrain.terrain.png')
+
     def create_tilemap(self):
         for i, row in enumerate(tilemap):
             for j, column in enumerate(row):
