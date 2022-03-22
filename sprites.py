@@ -5,16 +5,18 @@ import random
 
 class Spritesheet:
     def __init__(self, file):
-
-class Player(pygame.sprite.Sprite):
-    def __init__(self,game,x,y):
         self.sheet = pygame.image.load(file).convert()
 
     def get_sprite(self, x, y, width, height):
-        sprite = pygame.surface([width, height])
+        sprite = pygame.Surface([width, height])
         sprite.blit(self.sheet, (0,0), (x, y, width, height))
         sprite.set_colorkey(black)
         return sprite
+
+class Player(pygame.sprite.Sprite):
+    def __init__(self,game,x,y):
+        #self.sheet = pygame.image.load(file).convert()
+
 
         self.game = game
         self._layer = player_layer
@@ -33,7 +35,7 @@ class Player(pygame.sprite.Sprite):
 
 
 
-        self.image = pygame.Surface([self.width,self.height])
+        self.image = self.game.character_spritesheet.get_sprite(3, 2, self.width, self.height)
     
 
         self.rect = self.image.get_rect()
@@ -77,8 +79,7 @@ class Block(pygame.sprite.Sprite):
         self.width = tilesize
         self.height = tilesize
 
-        self.image = pygame.Surface([self.width,self.height])
-        self.image.fill(blue)
+        self.image = self.game.terrain_spritesheet.get_sprite(960, 448, self.width, self.height)
 
         self.rect = self.image.get_rect()
         self.rect.x = self.x
