@@ -29,4 +29,4 @@ tilemap = [
     'B..................B',
     'B.P................B',
     'BBBBBBBBBBBBBBBBBBBB'
-]
+] #test
